@@ -99,8 +99,24 @@ export default function Home() {
         from: Creator.Bot,
         key: new Date().getTime()
       };
+      setMessages([...messagesRef.current, botMessage]);
+    } else {
+      //show error
     }
   }
 
-  return <main className="styles.main"></main>;
+  return (
+    <main className="relative max-w-2xl mx-auto">
+      <div className="sticky top-0 w-full pt-10 px-4">
+        <ChatInput onSend={(input)=> callApi(input)} disabled={loading}/>
+      </div>
+      <div className="mt-10 px-4">
+        {messages.map((mesg: MessageProps)=> (
+          <ChatMessage key={mesg.key} text={mesg.text} from={mesg.from} />
+        ))}
+        {messages.length == 0 && <p className="text-center text-gray-400">I am at your service</p>}
+      </div>
+    </main>
+
+    )
 }
