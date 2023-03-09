@@ -33,4 +33,7 @@ export default async function handler(
     temperature: 0.7,
     max_tokens: 150,
   });
+
+  const response = aiResult.data.choices[0].text?.trim() || 'Sorry, there was a problem!';
+  res.status(200).json({ text: response });
 }
