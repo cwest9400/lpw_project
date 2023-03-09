@@ -38,6 +38,25 @@ const ChatMessage = ({ text, from}: MessageProps) => {
     </>
   )
 }
+//chat input field
+const ChatInput = ({ onSend, disabled }: InputProps) => {
+  const [input, setInput] = useState('');
+
+  const sendInput = () => {
+    onSend(input);
+    setInput('');
+  };
+
+  const handleKeyDown = (event:any) => {
+    if (event.keyCode === 13) {
+      sendInput();
+    }
+  };
+
+  return (
+    
+  )
+}
 
 export default function Home() {
   return (
