@@ -82,7 +82,7 @@ export default function Home() {
     };
 
     setMessages([...messagesRef.current, myMessage])
-    const response = await fetch('/api/generate-answer', {
+    const response = await fetch('api/generate-answer', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
