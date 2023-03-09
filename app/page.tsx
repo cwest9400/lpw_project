@@ -54,7 +54,20 @@ const ChatInput = ({ onSend, disabled }: InputProps) => {
   };
 
   return (
-    
+    <div className='bg-white border-2 p-2 rounded-lg flex justify-center'>
+      <input
+      value={input}
+      onChange={(ev: any)=>setInput(ev.target.value)}
+      className="w-full py-2 px-3 text-gray-800 rounded-lg focus:outline-none"
+      type="text"
+      placeholder="ask me anything"
+      disabled={disabled}
+      onKeyDown={(ev)=> handleKeyDown(ev)}
+      />
+      
+
+      
+    </div>
   )
 }
 
