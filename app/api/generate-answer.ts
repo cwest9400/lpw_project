@@ -20,5 +20,11 @@ export default async function handler(
     req: GenerateNextApiRequest,
     res: NextApiResponse<ResponseData>
 ) {
+    const prompt = req.body.prompt;
+
+    if (!prompt || prompt === '') {
+        return new Response('Please send your prompt', { status:400 });
+    }
+
     
 }
